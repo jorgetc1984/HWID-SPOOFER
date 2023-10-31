@@ -1,43 +1,74 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CallBuc_Dial 📞📞</title>
+  <link rel="stylesheet" type="text/css" href="./CallBucDial.css">
+  <img src="images/logo.png" alt="./img">
+</head>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+<body>
+  <section id="Predictivo">
+    <h1 class="titulo">CallBuc_Dial 📞📞</h1>
+    <div id="contenedor">
+      <div id="contenedorcentrado">
+        <div id="login">
+          <form id="loginform">
+            <label for="usuario">Extensión</label>
+            <input id="usuario" type="text" name="usuario" placeholder="Usuario" required>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+            <label for="password">Clave</label>
+            <input id="password" type="password" name="password" placeholder="Contraseña" required>
+
+            <label for="campaña">Campaña</label>
+            <select name="campaña" id="campaña">
+              <option value="paneles">Paneles</option>
+              <option value="seguros">Seguros</option>
+            </select>
+
+            <button type="submit" name="Ingresar" onclick="registrar()">Conectar</button>
+          </form>
+        </div>
+        <div id="derecho">
+          <div class="titulo">
+            Bienvenido
+          </div>
+          <hr>
+          <div class="pie-form">
+            <a href="#">¿Perdiste tu contraseña?</a>
+            <a href="#">¿No tienes cuenta? Regístrate</a>
+            <hr>
+            <a href="#">« Volver</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="./CallBucDial.js"></script>
+  <script>
+    function registrar() {
+      var extensionesValidas = ["101", "102", "103"];
+      var claveValida = "123456";
+      var campañaValida = "paneles";
+
+      var usuario = document.getElementById("usuario").value;
+      var password = document.getElementById("password").value;
+      var campaña = document.getElementById("campaña").value;
+
+      if (
+        extensionesValidas.includes(usuario) &&
+        password === claveValida &&
+        campaña === campañaValida
+      ) {
+        // Registro exitoso, redireccionar a la siguiente página
+        window.location.href = "file:///E:/Programacion2023/CallBucDial2.html";
+      } else {
+        alert("Error en el registro. Verifica los datos ingresados.");
+      }
+    }
+  </script>
+</body>
+
 </html>
