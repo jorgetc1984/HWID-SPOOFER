@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" media="all" href="./index_1.css">
+  <title>Formulario de clientes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    #formulario {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 800px;
+      min-width: 400px;
+      height: auto;
+      resize: vertical;
+      overflow: auto;
+      background-color: #f5f5f5;
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .columna {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .opciones-calificacion {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .opciones-calificacion button {
+      width: 100%;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .opciones-calificacion button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+
+<body>
+  <section id="Predictivo">
+    <h1 class="titulo">CallBuc_Dial - OPERANDO ☎️📠</h1>
+
+    <form id="formulario">
+      <div class="columna">
+        <!-- Contenido de la primera columna -->
+        <div>
+          <label for="estatus">Estatus:</label>
+          <select id="estatus" name="estatus">
+            <option value="pausa">Pausa</option>
+            <option value="activo">Activo</option>
+          </select>
+        </div>
+        <div>
+
+          <div class="opciones-calificacion">
+
+            <button type="button" onclick="">Buzon</button>
+            <button type="button" onclick="">APT O T_House</button>
+            <button type="button" onclick="">Llamar Luego</button>
+            <button type="button" onclick="">Numero Desconectado</button>
+            <button type="button" onclick="">Cita Caida</button>
+            <button type="button" onclick="">No Llamar Mas</button>
+            <button type="button" onclick="">Ingles</button>
+            <button type="button" onclick="">Empresa o Negocio</button>
+            <button type="button" onclick="">Fuera de Cobertura</button>
+            <button type="button" onclick="">Indocumentado</button>
+            <button type="button" onclick="">Mayor de Edad</button>
+            <button type="button" onclick="">No Contesta</button>
+            <button type="button" onclick="">No Interesado</button>
+            <button type="button" onclick="">Propietario de Casa</button>
+            <button type="button" onclick="">Renta</button>
+            <button type="button" onclick="">Tiro el Telefono</button>
+            <button type="button" onclick="">Ya tiene Paneles</button>
+            <button type="button" onclick="">Cita Efectiva</button>
+          </div>
+        </div>
+      </div>
+      <div class="columna">
+        <!-- Contenido de la segunda columna -->
+        <div>
+          <label for="nombreCliente">Nombre del cliente:</label>
+          <input type="text" id="nombreCliente" name="nombreCliente">
+        </div>
+        <div>
+          <label for="telefonoCliente">Teléfono del cliente:</label>
+          <input type="text" id="telefonoCliente" name="telefonoCliente">
+        </div>
+        <div>
+          <label for="valorMensual">Valor bell mensual:</label>
+          <input type="text" id="valorMensual" name="valorMensual">
+        </div>
+        <div>
+          <label for="bancarrota">Bancarrota:</label>
+          <label><input type="radio" id="bancarrotaSi" name="bancarrota" value="si">Sí</label>
+          <label><input type="radio" id="bancarrotaNo" name="bancarrota" value="no" checked>No</label>
+        </div>
+        <div>
+          <label for="edadCliente">Edad del cliente:</label>
+          <input type="number" id="edadCliente" name="edadCliente">
+        </div>
+        <div>
+          <label for="declaraTaxes">Declara Taxes:</label>
+          <label><input type="radio" id="declaraTaxesSi" name="declaraTaxes" value="si">Sí</label>
+          <label><input type="radio" id="declaraTaxesNo" name="declaraTaxes" value="no" checked>No</label>
+        </div>
+        <div>
+          <label>Enviar cita por:</label>
+          <div>
+            <input type="radio" id="email" name="enviarCita" value="email" onclick="mostrarCajaTexto('cajaEmail')">
+            <label for="email">Email</label>
+          </div>
+          <div>
+            <input type="radio" id="whatsapp" name="enviarCita" value="whatsapp"
+              onclick="mostrarCajaTexto('cajaWhatsapp')">
+            <label for="whatsapp">WhatsApp</label>
+          </div>
+          <div>
+            <input type="radio" id="chatInterno" name="enviarCita" value="chatInterno"
+              onclick="mostrarCajaTexto('cajaChatInterno')">
+            <label for="chatInterno">Chat interno</label>
+          </div>
+        </div>
+        <div id="cajaEmail" style="display: none;">
+          <label for="textoEmail">Envío a Correo:</label>
+          <input type="email" id="textoEmail" name="textoEmail">
+        </div>
+        <div id="cajaWhatsapp" style="display: none;">
+          <label for="textoWhatsapp">Envío a WhatsApp:</label>
+          <input type="tel" id="textoWhatsapp" name="textoWhatsapp">
+        </div>
+        <div id="cajaChatInterno" style="display: none;">
+          <label for="textoChatInterno">Envío a Chat interno:</label>
+          <textarea id="textoChatInterno" name="textoChatInterno"></textarea>
+        </div>
+        <br>
+      </div>
+      <div class="columna">
+        <div id="llamadaManual">
+          <label>Llamada Manual:</label>
+          <input type="text" id="numeroTelefono" readonly>
+          <br><br>
+          <div id="tecladoNumerico">
+            <button type="button" onclick="agregarNumero(1)">1</button>
+            <button type="button" onclick="agregarNumero(2)">2</button>
+            <button type="button" onclick="agregarNumero(3)">3</button>
+            <button type="button" onclick="agregarNumero(4)">4</button>
+            <button type="button" onclick="agregarNumero(5)">5</button>
+            <button type="button" onclick="agregarNumero(6)">6</button>
+            <button type="button" onclick="agregarNumero(7)">7</button>
+            <button type="button" onclick="agregarNumero(8)">8</button>
+            <button type="button" onclick="agregarNumero(9)">9</button>
+            <button type="button" onclick="agregarNumero('*')">*</button>
+            <button type="button" onclick="agregarNumero(0)">0</button>
+            <button type="button" onclick="agregarNumero('#')">#</button>
+            <div class="botones-contenedor">
+              <button onclick="borrarUltimoDigito()">◀️</button>
+              <button type="button" onclick="llamar()">📞</button>
+              <button type="button" onclick="Grabar()">⏺️</button>
+            </div>
+            <br>
+            <button type="button" onclick="enviarCita()">Enviar Cita</button>
+            <br> <br>
+            <div>
+              <button type="button" onclick="finalizarSesion()" id="finalizarSesion">Finalizar Sesión</button>
+            </div>
+          </div>
+        </div>
+    </form>
+  </section>
+  <script>
+    function activarLlamadaManual() {
+      document.getElementById("numeroTelefono").disabled = false;
+      document.getElementById("tecladoNumerico").style.display = "block";
+    }
+
+    function agregarNumero(numero) {
+      document.getElementById("numeroTelefono").value += numero;
+    }
+
+    function llamar() {
+      var numeroTelefono = document.getElementById("numeroTelefono").value;
+      // Aquí puedes implementar la lógica para realizar la llamada utilizando el número de teléfono
+      console.log("Llamando al número: " + numeroTelefono);
+    }
+
+    function finalizarSesion() {
+      window.location.href = "./index.html";
+    }
+
+    // Resto de las funciones JavaScript para la funcionalidad del formulario
+    // ...
+  </script>
+  <script src="./index1.js"></script>
+</body>
+
+</html>
