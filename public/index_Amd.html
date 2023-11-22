@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" media="all" href="./index_Adm.css">
+  <h1>CallBuc_Admin 📞🔧</h1>
+
+  <style>
+    .opciones-Administrativas {
+      position: relative;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .opciones-configuracion {
+      display: none;
+      position: absolute;
+      top: 30px;
+      right: 0;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      padding: 10px;
+      z-index: 1;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    #formulario {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 800px;
+      min-width: 400px;
+      height: auto;
+      resize: vertical;
+      overflow: auto;
+      background-color: #f5f5f5;
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .columna {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .opciones-calificacion {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .opciones-calificacion button {
+      width: 100%;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .opciones-calificacion button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="opciones-Administrativas">
+    <header>
+      <nav>
+        <ul>
+          <!-- Configuración de Usuarios -->
+          <li>
+            <a href="#" onclick="mostrarOpciones('opcionesConfiguracionUsuarios')">Configuración de Usuarios</a>
+            <div id="opcionesConfiguracionUsuarios" class="opciones-configuracion">
+              <button onclick="agregarUsuario()">Agregar Usuario</button>
+              <button onclick="eliminarUsuario()">Eliminar Usuario</button>
+              <button onclick="modificarUsuario()">Modificar Usuario</button>
+            </div>
+          </li>
+
+          <!-- Configuración de Listas -->
+          <li>
+            <a href="#" onclick="mostrarOpciones('opcionesConfiguracionListas')">Configuración de Listas</a>
+            <div id="opcionesConfiguracionListas" class="opciones-configuracion">
+              <button onclick="agregarLista()">Agregar Lista</button>
+              <button onclick="eliminarLista()">Eliminar Lista</button>
+              <button onclick="modificarLista()">Modificar Lista</button>
+            </div>
+          </li>
+
+          <!-- Otros enlaces de navegación -->
+          <li><a href="#">Configuración VoIP</a></li>
+          <li><a href="#">Llamadas Inbound</a></li>
+          <li><a href="#">Grabación de Llamadas</a></li>
+          <li><a href="#">Monitor de Asesores</a></li>
+          <li><a href="#">Reportes</a></li>
+          <li><a href="#">Cerrar Sesión</a></li>
+        </ul>
+      </nav>
+    </header>
+  </div>
+  </div>
+  </div>
+  </form>
+  </section>
+  <button type="button" onclick="Volver()" id="Volver">Volver</button>
+
+  <script>
+    function mostrarOpciones(idOpciones) {
+      var opciones = document.getElementById(idOpciones);
+      opciones.style.display = (opciones.style.display === "block") ? "none" : "block";
+    }
+
+    function agregarUsuario() {
+      alert("Lógica para agregar usuario");
+    }
+
+    function eliminarUsuario() {
+      alert("Lógica para eliminar usuario");
+    }
+
+    function modificarUsuario() {
+      alert("Lógica para modificar usuario");
+    }
+
+    function agregarLista() {
+      alert("Lógica para agregar lista");
+    }
+
+    function eliminarLista() {
+      alert("Lógica para eliminar lista");
+    }
+
+    function modificarLista() {
+      alert("Lógica para modificar lista");
+    }
+
+    function Volver() {
+      // Agrega lógica para volver según sea necesario
+    }
+  </script>
+</body>
+
+</html>
