@@ -2,160 +2,252 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" media="all" href="./index_Adm.css">
-  <h1>CallBuc_Admin 📞🔧</h1>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="all" href="./index_Adm.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
 
-  <style>
-    .opciones-Administrativas {
-      position: relative;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-      text-align: center;
-    }
+        h1 {
+            text-align: center;
+            background-color: #333;
+            color: #fff;
+            padding: 30px;
+            margin: 40;
+        }
 
-    .opciones-configuracion {
-      display: none;
-      position: absolute;
-      top: 30px;
-      right: 0;
-      background-color: #f9f9f9;
-      border: 1px solid #ddd;
-      padding: 10px;
-      z-index: 1;
-    }
+        .opciones-Administrativas {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
 
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-      text-align: center;
-    }
+        .opciones-configuracion {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            color: #fff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            z-index: 1;
+            width: 200px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            top: 30px;
+            left: 0;
+        }
 
-    h1 {
-      text-align: center;
-      color: #333;
-    }
+        .opciones-configuracion button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            background-color: #555;
+            border: none;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
 
-    #formulario {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      max-width: 800px;
-      min-width: 400px;
-      height: auto;
-      resize: vertical;
-      overflow: auto;
-      background-color: #f5f5f5;
-      border-radius: 8px;
-      padding: 20px;
-    }
+        .opciones-configuracion button:hover {
+            background-color: #777;
+        }
 
-    .columna {
-      display: flex;
-      flex-direction: column;
-    }
+        .opciones-Administrativas ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            width: 37%;
+        }
 
-    .opciones-calificacion {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
+        .opciones-Administrativas li {
+            flex-basis: calc(50% - 10px);
+            margin: 15px 0;
+            position: relative;
+        }
 
-    .opciones-calificacion button {
-      width: 100%;
-      padding: 10px 20px;
-      background-color: #4CAF50;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
+        .opciones-Administrativas a {
+            color: #333;
+            text-decoration: none;
+            padding: 15px;
+            display: block;
+            background-color: #5c9c8c;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
 
-    .opciones-calificacion button:hover {
-      background-color: #45a049;
-    }
-  </style>
+        .opciones-Administrativas a:hover {
+            background-color: #dddddd;
+        }
+
+        .opciones-Administrativas li:hover .opciones-configuracion {
+            display: block;
+        }
+
+        .minipantalla {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            z-index: 2;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .linea-conectora {
+            position: absolute;
+            height: 2px;
+            background-color: #555;
+            top: 50%;
+            left: 100%;
+            margin-left: 10px;
+            transform: translateY(-50%);
+        }
+
+        /* Ajustes para que algunas opciones se abran al lado opuesto */
+        #opcionesConfiguracionListas,
+        #opcionesLlamadasInbound,
+        #opcionesGrabacionLlamadas,
+        #opcionesReportes {
+            right: auto;
+            left: 103%;
+            margin-left: 0;
+        }
+
+        #opcionesConfiguracionListas .linea-conectora,
+        #opcionesLlamadasInbound .linea-conectora,
+        #opcionesGrabacionLlamadas .linea-conectora,
+        #opcionesReportes .linea-conectora {
+            right: auto;
+            left: 100%;
+            margin-left: -10px;
+        }
+
+        /* Ajustes para que algunas opciones se abran a la derecha */
+        #opcionesConfiguracionUsuarios,
+        #opcionesConfiguracionVoIP,
+        #opcionesLlamadasOutbound,
+        #opcionesMonitorAsesores {
+            left: auto;
+            right: 103%;
+            margin-left: 0;
+        }
+
+        #opcionesConfiguracionUsuarios .linea-conectora,
+        #opcionesConfiguracionVoIP .linea-conectora,
+        #opcionesLlamadasOutbound .linea-conectora,
+        #opcionesMonitorAsesores .linea-conectora {
+            left: auto;
+            right: 100%;
+            margin-left: -10px;
+        }
+    </style>
 </head>
 
 <body>
-  <div class="opciones-Administrativas">
-    <header>
-      <nav>
+    <h1>CallBuc_Admin 📞🔧</h1>
+    <div class="opciones-Administrativas">
         <ul>
-          <!-- Configuración de Usuarios -->
-          <li>
-            <a href="#" onclick="mostrarOpciones('opcionesConfiguracionUsuarios')">Configuración de Usuarios</a>
-            <div id="opcionesConfiguracionUsuarios" class="opciones-configuracion">
-              <button onclick="agregarUsuario()">Agregar Usuario</button>
-              <button onclick="eliminarUsuario()">Eliminar Usuario</button>
-              <button onclick="modificarUsuario()">Modificar Usuario</button>
-            </div>
-          </li>
+            <!-- Configuración de Usuarios -->
+            <li>
+                <a href="#" onclick="mostrarOpciones('opcionesConfiguracionUsuarios')">Configuración de Usuarios</a>
+                <div id="opcionesConfiguracionUsuarios" class="opciones-configuracion">
+                    <button onclick="agregarUsuario()">Agregar Usuario</button>
+                    <button onclick="eliminarUsuario()">Eliminar Usuario</button>
+                    <button onclick="modificarUsuario()">Modificar Usuario</button>
+                    <div class="linea-conectora"></div>
+                </div>
+            </li>
 
-          <!-- Configuración de Listas -->
-          <li>
-            <a href="#" onclick="mostrarOpciones('opcionesConfiguracionListas')">Configuración de Listas</a>
-            <div id="opcionesConfiguracionListas" class="opciones-configuracion">
-              <button onclick="agregarLista()">Agregar Lista</button>
-              <button onclick="eliminarLista()">Eliminar Lista</button>
-              <button onclick="modificarLista()">Modificar Lista</button>
-            </div>
-          </li>
+            <!-- Configuración de Listas -->
+            <li>
+                <a href="#" onclick="mostrarOpciones('opcionesConfiguracionListas')">Configuración de Listas</a>
+                <div id="opcionesConfiguracionListas" class="opciones-configuracion">
+                    <button onclick="agregarLista()">Agregar Lista</button>
+                    <button onclick="eliminarLista()">Eliminar Lista</button>
+                    <button onclick="modificarLista()">Modificar Lista</button>
+                    <div class="linea-conectora"></div>
+                </div>
+            </li>
 
-          <!-- Otros enlaces de navegación -->
-          <li><a href="#">Configuración VoIP</a></li>
-          <li><a href="#">Llamadas Inbound</a></li>
-          <li><a href="#">Grabación de Llamadas</a></li>
-          <li><a href="#">Monitor de Asesores</a></li>
-          <li><a href="#">Reportes</a></li>
-          <li><a href="#">Cerrar Sesión</a></li>
+            <!-- Configuración VoIP -->
+            <li>
+                <a href="#" onclick="mostrarOpciones('opcionesConfiguracionVoIP')">Configuración VoIP</a>
+                <div id="opcionesConfiguracionVoIP" class="opciones-configuracion">
+                    <button onclick="opcionVoIP1()">Agregar proveedor VoIP</button>
+                    <button onclick="opcionVoIP2()">Eliminar proveedor VoIP</button>
+                    <div class="linea-conectora"></div>
+                </div>
+            </li>
+
+            <!-- Llamadas Inbound -->
+            <li>
+                <a href="#" onclick="mostrarOpciones('opcionesLlamadasInbound')">Llamadas Inbound</a>
+                <div id="opcionesLlamadasInbound" class="opciones-configuracion">
+                    <button onclick="opcionInbound1()">Llamadas recibidas</button>
+                    <button onclick="opcionInbound2()">Llamadas perdidas</button>
+                    <div class="linea-conectora"></div>
+                </div>
+            </li>
+
+            <!-- Llamadas Outbound -->
+            <li>
+                <a href="#" onclick="mostrarOpciones('opcionesLlamadasOutbound')">Llamadas Outbound</a>
+                <div id="opcionesLlamadasOutbound" class="opciones-configuracion">
+                    <button onclick="opcionOutbound1()">Llamadas recibidas</button>
+                    <button onclick="opcionOutbound2()">Llamadas perdidas</button>
+                    <div class="linea-conectora"></div>
+                </div>
+            </li>
+
+            <!-- Grabación de Llamadas -->
+            <li>
+                <a href="#" onclick="mostrarOpciones('opcionesGrabacionLlamadas')">Grabación de Llamadas</a>
+                <div id="opcionesGrabacionLlamadas" class="opciones-configuracion">
+                    <button onclick="opcionGrabacion1()">Descarga grabaciones</button>
+                    <button onclick="opcionGrabacion2()">Elimina grabaciones</button>
+                    <div class="linea-conectora"></div>
+                </div>
+            </li>
+
+            <!-- Monitor de Asesores -->
+            <li>
+                <a href="#" onclick="mostrarOpciones('opcionesMonitorAsesores')">Monitor de Asesores</a>
+                <div id="opcionesMonitorAsesores" class="opciones-configuracion">
+                    <button onclick="opcionMonitor1()">Asesores conectados</button>
+                    <button onclick="opcionMonitor2()">Asesores en llamada</button>
+                    <button onclick="opcionMonitor2()">Asesores en pausa</button>
+                    <button onclick="opcionMonitor2()">Asesores</button>
+                    <div class="linea-conectora"></div>
+                </div>
+            </li>
+
+            <!-- Reportes -->
+            <li>
+                <a href="#" onclick="mostrarOpciones('opcionesReportes')">Reportes</a>
+                <div id="opcionesReportes" class="opciones-configuracion">
+                    <button onclick="opcionReporte2()">Reporte general</button>
+                    <button onclick="opcionReporte2()">Reporte de Ventas</button>
+                    <div class="linea-conectora"></div>
+                </div>
+            </li>
         </ul>
-      </nav>
-    </header>
-  </div>
-  </div>
-  </div>
-  </form>
-  </section>
-  <button type="button" onclick="Volver()" id="Volver">Volver</button>
-
-  <script>
-    function mostrarOpciones(idOpciones) {
-      var opciones = document.getElementById(idOpciones);
-      opciones.style.display = (opciones.style.display === "block") ? "none" : "block";
-    }
-
-    function agregarUsuario() {
-      alert("Lógica para agregar usuario");
-    }
-
-    function eliminarUsuario() {
-      alert("Lógica para eliminar usuario");
-    }
-
-    function modificarUsuario() {
-      alert("Lógica para modificar usuario");
-    }
-
-    function agregarLista() {
-      alert("Lógica para agregar lista");
-    }
-
-    function eliminarLista() {
-      alert("Lógica para eliminar lista");
-    }
-
-    function modificarLista() {
-      alert("Lógica para modificar lista");
-    }
-
-    function Volver() {
-      // Agrega lógica para volver según sea necesario
-    }
-  </script>
+    </div>
+    <script src="./index_Adm.js"></script>
 </body>
 
 </html>
