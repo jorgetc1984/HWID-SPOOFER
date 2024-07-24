@@ -11,6 +11,12 @@
 
 Protect your gaming accounts from bans with the latest 2024 HWID spoofer. Our undetectable HWID spoofer helps you avoid hardware bans in popular games like Fortnite, Warzone, Apex Legends, and more.
 
+## PREVIEW
+
+![image](https://github.com/user-attachments/assets/c2358024-b652-4500-8391-5bab33881f3a)
+
+
+
 ### Main Features of HWID Spoofer
 
 - **HWID Spoofer for Games**: Works with a variety of popular games to prevent hardware bans.
